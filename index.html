@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Capstone</title>
+  <!-- Materialize: Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <!-- Materialize: NECESSARY FOR ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Poppins:400,600|Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
-<body>
+
+<body ng-app="ClusterApp" ng-cloak>
   
+  <div>
+    <div class="container">
+      <div ng-view></div>
+    </div>
+  </div>
+
+  <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
+  <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Angular: Latest compiled and minified JavaScript -->
+  <script src="lib/bower_components/angular/angular.min.js"></script>
+  <!-- Angular Autofocus: Latest compiled and minified JavaScript -->
+<!--   <script src="lib/node_modules/ng-focus-if/focusIf.min.js"></script>
+ -->  
+ <!-- Angular Route: Latest compiled and minified JavaScript -->
+  <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+  <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+  <!-- Materialize: Latest compiled and minified JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
+
+  <!-- APP FIRST -->
+  <script type="text/javascript" src="app/app.js"></script>
+
+  <!-- FACTORIES -->
+  <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+
+  <!-- CONTROLLERS -->
+  <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
+
+
+
 </body>
 </html>
