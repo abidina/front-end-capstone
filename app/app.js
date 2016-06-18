@@ -14,16 +14,16 @@ var app = angular.module("ClusterApp", ["ngRoute"])
 // ROUTING HERE
 app.config(function($routeProvider) {
     $routeProvider
-        // .when("/", {
-        //     templateUrl: "partials/watchList.html",
-        //     controller:  "ListExternalCtrl",
-        //     resolve: {isAuth}
-        // })
-        // .when("/search", {
-        //     templateUrl: "partials/list.html",
-        //     controller:  "ListExternalCtrl",
-        //     resolve: {isAuth}
-        // })
+        .when("/", {
+            templateUrl: "partials/cluster-list.html",
+            controller:  "ListViewCtrl",
+            resolve: {isAuth}
+        })
+        .when("/search", {
+            templateUrl: "partials/search.html",
+            controller:  "ClusterSearchCtrl",
+            resolve: {isAuth}
+        })
         // .when("/results", {
         //     templateUrl: "partials/list.html",
         //     controller:  "ListExternalCtrl",

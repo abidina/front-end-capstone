@@ -15,7 +15,11 @@
 </head>
 
 <body ng-app="ClusterApp" ng-cloak>
-  
+  <!-- NAV -->
+  <div ng-include="'./partials/nav.html'"></div>
+
+
+  <!-- BODY -->
   <div>
     <div class="container">
       <div ng-view></div>
@@ -45,7 +49,8 @@
 
   <!-- CONTROLLERS -->
   <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
-
+  <script type="text/javascript" src="app/controllers/ListViewCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/ClusterSearchCtrl.js"></script>
 
 
 </body>
