@@ -1,0 +1,17 @@
+@import "../modules/colors";
+@import "../modules/text";
+
+.brand-logo {
+  font-family: $heading-text;
+}
+
+a {
+  font-family: $standard-text;
+}
+
+.nav-wrapper {
+  background-color: #fff;
+  a {
+    color: #19588D;
+  }
+}

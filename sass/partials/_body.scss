@@ -1,6 +1,25 @@
 @import "../modules/colors";
+@import "../modules/text";
 
 body {
   background-color: $background-color;
   color: $standard-text-color;
+}
+
+h1 {
+  font-family: $heading-text;
+  font-weight: 700;
+}
+
+h2, h3 {
+  font-family: $heading-text;
+}
+
+p {
+  font-family: $standard-text;
+}
+
+.btn {
+  font-family:  $standard-text;
+  font-weight: 600;
 }

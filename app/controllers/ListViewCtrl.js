@@ -1,5 +1,5 @@
 "use strict";
 
 app.controller("ListViewCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory) {
-  $scope.welcome = "Hello Other Humans."
+  $scope.welcome = "Hello Other Humans.";
 });
