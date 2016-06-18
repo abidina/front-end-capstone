@@ -23,6 +23,12 @@ input {
   border-bottom: $accent-color;
 }
 
+div {
+  img {
+    border-radius: 25%;
+  }
+}
+
 .btn {
   font-family:  $standard-text;
   font-weight: 600;

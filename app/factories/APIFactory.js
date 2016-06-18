@@ -20,7 +20,6 @@ app.factory("APIFactory", function($q, $http){
             'Authorization': authHeader
           },
           url: `https://api.imgur.com/3/gallery/t/${searchText}`
-          // url: `https://api.imgur.com/3/gallery/t/{searchText}`
       }).then(function successCallback(response) {
           // this callback will be called asynchronously
           // when the response is available
