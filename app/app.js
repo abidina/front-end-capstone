@@ -24,11 +24,11 @@ app.config(function($routeProvider) {
             controller:  "ClusterSearchCtrl",
             resolve: {isAuth}
         })
-        .when("/results", {
-            templateUrl: "partials/results.html",
-            controller:  "ListExternalCtrl",
-            resolve: {isAuth}
-        })
+        // .when("/results", {
+        //     templateUrl: "partials/results.html",
+        //     controller:  "ClusterSearchCtrl",
+        //     resolve: {isAuth}
+        // })
         .when("/login", {
             templateUrl: "partials/login.html",
             controller:  "LoginCtrl"
