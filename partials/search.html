@@ -9,10 +9,11 @@
     <!-- return images from search -->
     <div ng-repeat="imgur in imgurs">
       <div class="row">
-        <div class="card col s4">
-          <div class="card-image">
-            <img src={{imgur.link}}></img>
+        <div class="card col s5">
+          <div class="card-image circle">
+            <img ng-src="{{imgur.link}}" class="circle responsive-image" err-src="http://investorplace.com/wp-content/uploads/2013/12/Imgur.jpg" ></img>
           </div>
+          <li><a class=btn><i class="material-icons" ng-click="addToCluster(imgur)">add_circle</i></a></li>
         </div>
       </div>
     </div>

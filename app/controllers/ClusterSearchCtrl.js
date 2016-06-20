@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("ClusterSearchCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory, APIFactory) {
+app.controller("ClusterSearchCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory, APIFactory, ClusterFactory) {
   $scope.welcome = "Hello Humans.";
   let imagesFromDatabase = [];
   $scope.imgurs = [];
@@ -15,6 +15,14 @@ app.controller("ClusterSearchCtrl", function($scope, $rootScope, $location, fire
         //   $rootScope.imagesFromDatabase.push(image);
         // });
         // $rootScope.imagesFromDatabase.forEach((image))
-      })
-  }
+      });
+  };
+
+  $scope.addToCluster = (imgur) => {
+        console.log("clicked for firebase");
+    ClusterFactory.addToCluster(imgur);
+      // .then(() => {
+      //   Materialize.toast("Added to Cluster!", 4000, 'blue-accent-1');
+      // });
+  };
 });

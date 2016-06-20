@@ -37,6 +37,6 @@ app.factory("APIFactory", function($q, $http){
     });
   };
 
-  return {imageList:imageList}
+  return {imageList:imageList};
 
-})
+});
