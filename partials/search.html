@@ -1,3 +1,21 @@
-<div ng-controller="ClusterSearchCtrl">
+<div ng-controller="ClusterSearchCtrl" class="container">
   <h1>{{welcome}}</h1>
+  <div class="row">
+    <input type="text" placeholder="Search images..." ng-model="searchText" class="col s6 offset-s2">
+    <button class="btn col s1 offset-s1"><i class="material-icons" ng-click="getImages(searchText)">search</i></button>
+  </div>
+
+  <div class="image-display">
+    <!-- return images from search -->
+    <div ng-repeat="imgur in imgurs">
+      <div class="row">
+        <div class="card col s4">
+          <div class="card-image">
+            <img src={{imgur.link}}></img>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

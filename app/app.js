@@ -24,16 +24,10 @@ app.config(function($routeProvider) {
             controller:  "ClusterSearchCtrl",
             resolve: {isAuth}
         })
-        .when("/results", {
-            templateUrl: "partials/results.html",
-            controller:  "ListExternalCtrl",
-            resolve: {isAuth}
-        })
-        // .when("/watchlist",{
-        //     templateUrl: "partials/watchlist.html",
-        //     controller:  "ListExternalCtrl",
-        //     resolve: {isAuth},
-        //     reloadOnSearch: false
+        // .when("/results", {
+        //     templateUrl: "partials/results.html",
+        //     controller:  "ClusterSearchCtrl",
+        //     resolve: {isAuth}
         // })
         .when("/login", {
             templateUrl: "partials/login.html",
@@ -51,6 +45,10 @@ app.config(function($routeProvider) {
 });
 
 
+/*------ trying to get the sidebar collapse to work for mobile, forces jquery use? -------*/
+// $(document).ready(function() {
+//     $(".button-collapse").sideNav();
+// });
 
 app.run(($location) => {
   let todoRef = new Firebase("https://capstone-cluster.firebaseio.com/");
@@ -60,5 +58,6 @@ app.run(($location) => {
       $location.path("/login");
     }
   }));
+
 });
 
