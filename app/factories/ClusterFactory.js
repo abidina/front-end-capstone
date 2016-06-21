@@ -23,7 +23,18 @@ let addToCluster = (imgur) => {
 };
 
 // DELETE IMAGE FROM CLUSTER
-
+let deleteImgur = function(imgurId){
+  return $q(function(resolve, reject) {
+    $http
+      .delete(`${firebaseURL}imgurs/${imgurId}.json`)
+      .success(function(objectFromFirebase) {
+        resolve(objectFromFirebase);
+      })
+      .error(function(error){
+        reject(error);
+      });
+  });
+};
 
 // FIREBASE: RETRIEVES CLUSTER FOR EACH LOGGED-IN USER FROM DATABASE
   let getUserCluster = () =>  {
@@ -48,5 +59,5 @@ let addToCluster = (imgur) => {
   };
 
 
-  return{getUserCluster:getUserCluster, addToCluster:addToCluster}; 
+  return{getUserCluster:getUserCluster, addToCluster:addToCluster, deleteImgur:deleteImgur}; 
 });
