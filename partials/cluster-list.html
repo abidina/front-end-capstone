@@ -1,3 +1,16 @@
-<div ng-controller="ListViewCtrl">
+<div ng-controller="ListViewCtrl" class="container">
   <h1>{{welcome}}</h1>
+  <div class="image-display">
+    <div ng-repeat="imgur in imgursInCluster">
+        <div class="row">
+          <div class="card col s5">
+            <div class="card-image circle">
+              <img ng-src="{{imgur.URL}}" class="circle responsive-image"></img>
+            </div>
+            <li><a class=btn><i class="material-icons" ng-click="imgurDelete(imgur.id)">delete_forever</i></a></li> 
+
+          </div>
+        </div>
+    </div>
+  </div>
 </div>

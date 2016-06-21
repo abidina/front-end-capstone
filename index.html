@@ -16,15 +16,27 @@
 
 <body ng-app="ClusterApp" ng-cloak>
   <!-- NAV -->
-  <div ng-include="'./partials/nav.html'"></div>
-
+  <header>
+    <div ng-include="'./partials/nav.html'"></div>
+  </header>
 
   <!-- BODY -->
-  <div>
+  <main>
+    <div>
+      <div class="container">
+        <div ng-view></div>
+      </div>
+    </div>
+  </main>
+
+
+<footer>
+  <div class="footer-copyright">
     <div class="container">
-      <div ng-view></div>
+    © 2016 Abbie Holder
     </div>
   </div>
+</footer>
 
   <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
   <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -49,8 +61,6 @@
   <!-- CONTROLLERS -->
   <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
   <script type="text/javascript" src="app/controllers/ClusterSearchCtrl.js"></script>
-<!--   <script type="text/javascript" src="app/controllers/ListExternalCtrl.js"></script>
- -->  
   <script type="text/javascript" src="app/controllers/ListViewCtrl.js"></script>
 
 
