@@ -1,14 +1,19 @@
 "use strict";
 
 app.controller("ListViewCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory, APIFactory, ClusterFactory) {
-  $scope.welcome = "Hello Other Humans.";
-  // DISPLAY USER CLUSTER/S
+  // VARIABLES
+  $scope.imgursInCluster = [];
 
-  // $scope.addToCluster = (imgur) => {
-  //       console.log("clicked for firebase");
-  //   ClusterFactory.addToCluster(imgur)
-  //     .then(() => {
-  //       Materialize.toast("Added to Cluster!", 4000, 'blue-accent-1');
-  //     });
+  $scope.welcome = "This isn't gonna work.";
+
+  // DISPLAY USER CLUSTER/S
+  // $scope.showCluster = () => {
+    ClusterFactory.getUserCluster()
+      .then(function(imgurCollection) {
+        console.log("imgurCollection", imgurCollection);
+        $scope.imgursInCluster = imgurCollection;
+        console.log("imgursInCluster", $scope.imgursInCluster);
+      });
   // };
+
 });

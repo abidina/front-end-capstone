@@ -26,8 +26,27 @@ let addToCluster = (imgur) => {
 
 
 // FIREBASE: RETRIEVES CLUSTER FOR EACH LOGGED-IN USER FROM DATABASE
-  // let myCluster = () =>  
+  let getUserCluster = () =>  {
+    let user = AuthFactory.getUser();
+    let imgursInCluster = [];
+
+    return $q(function(resolve, reject){
+      $http.get(`${firebaseURL}imgurs.json?orderBy="uid"&equalTo="${user.uid}"`)
+        .success(function(returnObject){
+          var imgurCollection = returnObject;
+          console.log(imgurCollection);
+          Object.keys(imgurCollection).forEach(function(key){
+            imgurCollection[key].id=key;
+            imgursInCluster.push(imgurCollection[key]);
+          });
+            resolve(imgursInCluster);
+        })
+        .error(function(error){
+          reject(error);
+        });
+    });
+  };
 
 
-  return{addToCluster:addToCluster}; //myCluster:myCluster, 
+  return{getUserCluster:getUserCluster, addToCluster:addToCluster}; 
 });
