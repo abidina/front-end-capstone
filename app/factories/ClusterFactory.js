@@ -20,8 +20,28 @@ let addNewCluster = (newCluster) => {
   });
 };
 
+
+// DELETE EXISTING CLUSTER
+let deleteCluster = function(clusterId){
+  return $q(function(resolve, reject) {
+    $http
+      .delete(`${firebaseURL}clusters/${clusterId}.json`)
+      .success(function(objectFromFirebase) {
+        resolve(objectFromFirebase);
+      })
+      .error(function(error){
+        reject(error);
+      });
+  });
+};
+
+
+// EDIT USER TITLE
+
+
+
 // FIREBASE: RETRIEVES CLUSTER INFO FOR EACH LOGGED-IN USER
-  let getUserImgurs = () =>  {
+  let getUserClusters = () =>  {
     let user = AuthFactory.getUser();
     let userClusters = [];
 
@@ -43,5 +63,5 @@ let addNewCluster = (newCluster) => {
   };
   
 
-  return {getUserImgurs:getUserImgurs, addNewCluster:addNewCluster};
+  return {getUserClusters:getUserClusters, addNewCluster:addNewCluster, deleteCluster:deleteCluster};
 });
