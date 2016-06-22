@@ -15,13 +15,18 @@ var app = angular.module("ClusterApp", ["ngRoute"])
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "partials/cluster-list.html",
+            templateUrl: "partials/imgur-list.html",
             controller:  "ListViewCtrl",
+            resolve: {isAuth}
+        })        
+        .when("/cluster-view", {
+            templateUrl: "partials/cluster-view.html",
+            controller:  "ClusterCtrl",
             resolve: {isAuth}
         })
         .when("/search", {
             templateUrl: "partials/search.html",
-            controller:  "ClusterSearchCtrl",
+            controller:  "ImgurSearchCtrl",
             resolve: {isAuth}
         })
         .when("/login", {
