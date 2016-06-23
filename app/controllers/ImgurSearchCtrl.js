@@ -4,6 +4,13 @@ app.controller("ImgurSearchCtrl", function($scope, $rootScope, $location, fireba
   $scope.welcome = "Hello Humans.";
   let imagesFromImgur = [];
   $scope.imgurs = [];
+
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            
+  
   $scope.getImages = () =>{
     console.log("click");
       APIFactory.imageList($scope.searchText)

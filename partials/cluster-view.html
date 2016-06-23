@@ -1,7 +1,20 @@
 <div ng-controller="ClusterCtrl">
   <h1>{{welcome}}</h1>
   <div class="row">
-    <input type="text" placeholder="Name your Cluster here..." class="col s6 offset-s2" ng-model="newCluster.title">
+    <input type="text" placeholder="Name your Cluster here..." class="col s6 offset-s2" ng-model="newCluster.title" />
     <button class="btn col s1 offset-s1"><i class="material-icons" ng-click="addNewCluster()">fast_forward</i></button>
+  </div>
+
+  <h1>My Clusters</h1>
+  <div ng-repeat="cluster in userClusters">
+    <div class="card">
+      <a ng-href="#/cluster/{{cluster.id}}"><h3>{{cluster.title}}</h3></a>
+      <div>
+        <button class="btn" ng-click="">Edit</button>
+      </div>
+      <div>
+        <button class="btn" ng-click="clusterDelete(cluster.id)">X</button>
+      </div>
+    </div>
   </div>
 </div>

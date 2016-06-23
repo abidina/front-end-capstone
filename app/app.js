@@ -19,9 +19,14 @@ app.config(function($routeProvider) {
             controller:  "ListViewCtrl",
             resolve: {isAuth}
         })        
-        .when("/cluster-view", {
+        .when("/cluster-list", {
             templateUrl: "partials/cluster-view.html",
             controller:  "ClusterCtrl",
+            resolve: {isAuth}
+        })
+        .when("/cluster/:id", {
+            templateUrl: "partials/cluster-details.html",
+            controller:  "ClusterDetailCtrl",
             resolve: {isAuth}
         })
         .when("/search", {
@@ -46,9 +51,9 @@ app.config(function($routeProvider) {
 
 
 /*------ trying to get the sidebar collapse to work for mobile, forces jquery use? -------*/
-// $(document).ready(function() {
-//     $(".button-collapse").sideNav();
-// });
+$(document).ready(function() {
+    $(".button-collapse").sideNav();
+});
 
 app.run(($location) => {
   let todoRef = new Firebase("https://capstone-cluster.firebaseio.com/");

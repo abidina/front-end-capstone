@@ -12,7 +12,16 @@
         <div class="card col s5">
           <div class="card-image circle">
             <img ng-src="{{imgur.link}}" class="circle responsive-image"></img>
+            <div class="input-field col s12">
+              <select>
+                <option>{{cluster.title}}</option>
+              </select>
+            </div>
           </div>
+
+<!--      <li><a href="#/cluster/{{cluster.id}}">
+ -->
+
           <li><a class=btn><i class="material-icons" ng-click="addToCluster(imgur)">add_circle</i></a></li>
         </div>
       </div>

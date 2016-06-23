@@ -36,8 +36,34 @@ let deleteCluster = function(clusterId){
 };
 
 
-// EDIT USER TITLE
+// EDIT CLUSTER TITLE
+var getSpecificCluster = (clusterId) => {
+  return $q(function(resolve, reject) {
+    $http.get(`${firebaseURL}clusters/${clusterId}.json`)
+      .success(function(clusterObject) {
+        resolve(clusterObject);
+      })
+      .error(function(error) {
+        reject(error);
+      });
+  });
+};
 
+var updateClusterTitle = (clusterId, newCluster) => {
+  let user = AuthFactory.getUser();
+  return $q(function(resolve, reject) {
+    $http.put(`${firebaseURL}clusters/${clusterId}.json`,
+      JSON.stringify({
+        title: newCluster.title,
+        uid: user.uid
+      })
+    )
+    .success(
+      function(objectFromFirebase) {
+        resolve(objectFromFirebase);
+      });
+  });
+};
 
 
 // FIREBASE: RETRIEVES CLUSTER INFO FOR EACH LOGGED-IN USER
@@ -63,5 +89,5 @@ let deleteCluster = function(clusterId){
   };
   
 
-  return {getUserClusters:getUserClusters, addNewCluster:addNewCluster, deleteCluster:deleteCluster};
+  return {getUserClusters:getUserClusters, addNewCluster:addNewCluster, deleteCluster:deleteCluster, getSpecificCluster:getSpecificCluster, updateClusterTitle:updateClusterTitle};
 });

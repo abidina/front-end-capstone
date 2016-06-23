@@ -1,15 +1,26 @@
 "use strict";
 
-app.controller("ClusterCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory, APIFactory, ImgurFactory, ClusterFactory) {
+app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routeParams, firebaseURL, AuthFactory, APIFactory, ImgurFactory, ClusterFactory) {
   
   $scope.userClusters = [];
   $scope.selectedCluster = {};
   $scope.welcome = "Hello Clusters.";
 
+  $scope.editedCluster = {};
+
   $scope.newCluster = {
     title:"",
     uid:""
   };
+
+
+// DISPLAY USER CLUSTERS
+  ClusterFactory.getUserClusters()
+    .then(function(clusterCollection) {
+      console.log("clusterCollection", clusterCollection);
+      $scope.userClusters = clusterCollection;
+      console.log("userClusters", $scope.userClusters);
+    });
 
 // ADDING
   $scope.addNewCluster = () => {
@@ -36,7 +47,17 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, firebaseUR
   };
 
 // EDIT CLUSTER TITLE
+  ClusterFactory.getSpecificCluster($routeParams.clusterId)
+    .then(function successCallback(response) {
+      $scope.editedCluster=response;
+    });
 
+  $scope.addEditedCluster = () => {
+    clusterFactory.updateClusterTitle($routeParams.clusterId, $scope.editedCluster)
+      .then (function successCallback(response) {
+        $location.url("/clusters-view");
+      });
+  };
 
 
 });

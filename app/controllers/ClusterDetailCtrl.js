@@ -1,10 +1,15 @@
 "use strict";
 
-app.controller("ListViewCtrl", function($scope, $rootScope, $routeParams, $location, firebaseURL, AuthFactory, APIFactory, ImgurFactory) {
+app.controller("ClusterDetailCtrl", function($scope, $rootScope, $routeParams, $location, firebaseURL, AuthFactory, APIFactory, ImgurFactory, ClusterFactory) {
   // VARIABLES
   $scope.imgursInCluster = [];
   $scope.selectedImgur = {};
-  $scope.welcome = "This isn't gonna work.";
+  $scope.selectedCluster = {};
+
+  ClusterFactory.getSpecificCluster($routeParams.id)
+    .then(function(cluster) {
+      $scope.selectedCluster = cluster;
+    });
 
   // DISPLAY USER IMGUR/S
   ImgurFactory.getUserImgurs()
@@ -22,7 +27,7 @@ app.controller("ListViewCtrl", function($scope, $rootScope, $routeParams, $locat
 
   
 $scope.imgurDelete = (imgurId) => {
-  console.log("imgurId", imgurId); //still undefined
+  console.log("imgurId", imgurId); 
   ImgurFactory.deleteImgur(imgurId).then(function(response){
     ImgurFactory.getUserImgurs().then(function(imgurCollection){
       $scope.imgursInCluster = imgurCollection;
