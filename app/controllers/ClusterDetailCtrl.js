@@ -12,11 +12,9 @@ app.controller("ClusterDetailCtrl", function($scope, $rootScope, $routeParams, $
     });
 
   // DISPLAY USER IMGUR/S
-  ImgurFactory.getUserImgurs()
+  ImgurFactory.getUserImgurs($routeParams.id)
     .then(function(imgurCollection) {
-      console.log("imgurCollection", imgurCollection);
       $scope.imgursInCluster = imgurCollection;
-      console.log("imgursInCluster", $scope.imgursInCluster);
     });
 
 
@@ -29,7 +27,7 @@ app.controller("ClusterDetailCtrl", function($scope, $rootScope, $routeParams, $
 $scope.imgurDelete = (imgurId) => {
   console.log("imgurId", imgurId); 
   ImgurFactory.deleteImgur(imgurId).then(function(response){
-    ImgurFactory.getUserImgurs().then(function(imgurCollection){
+    ImgurFactory.getUserImgurs($routeParams.id).then(function(imgurCollection){
       $scope.imgursInCluster = imgurCollection;
     });
   });
