@@ -16,7 +16,7 @@ input {
   border-bottom: #536dfe; }
 
 div img {
-  border-radius: 25%; }
+  width: 100%; }
 
 .btn {
   font-family: "Poppins", sans-serif;

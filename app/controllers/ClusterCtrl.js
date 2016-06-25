@@ -3,13 +3,12 @@
 app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routeParams, firebaseURL, AuthFactory, APIFactory, ImgurFactory, ClusterFactory) {
   
     // VARIABLES
-  // $scope.selectedImgur = {};
-  // $scope.imgursInCluster = [];
+  $scope.selectedImgur = {};
+  $scope.imgursInCluster = [];
   $scope.selectedCluster = {};
   $scope.userClusters = [];
-  $scope.selectedCluster = {};
   // $scope.welcome = "Hello Clusters.";
-
+  $scope.displayImages = [];
   $scope.editedCluster = {};
 
   $scope.newCluster = {
@@ -21,7 +20,15 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
 // DISPLAY USER CLUSTERS
   ClusterFactory.getUserClusters()
     .then(function(clusterCollection) {
-      // console.log("clusterCollection", clusterCollection);
+      console.log("clusterCollection", clusterCollection);
+      for (let cluster in clusterCollection) {
+        // console.log("cluster", clusterCollection);
+        ImgurFactory.getUserImgurs(clusterCollection[cluster].id)
+          .then(function(images) {
+            console.log("images", images);
+            $scope.displayImages.push(images[0]);
+          })
+      }
       $scope.userClusters = clusterCollection;
       // console.log("userClusters", $scope.userClusters);
     });
@@ -36,7 +43,7 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
   };
 
 // DELETING 
-  $scope.selectedCluster = $scope.userClusters.filter(function(cluster) { // WHY CAN'T IT FIND THE USER CLUSTERS :(
+  $scope.selectedCluster = $scope.userClusters.filter(function(cluster) { 
     return cluster.id === $routeParams.clusterId; 
   })[0];
 

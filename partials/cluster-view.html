@@ -5,32 +5,17 @@
     <button class="btn col s1 offset-s1"><i class="material-icons" ng-click="addNewCluster()">thumb_up</i></button>
   </div>
 
-  <div ng-repeat="cluster in userClusters">
-    <div class="card row col s10">
-<!--     
-    <div class="carousel" ng-repeat="imgur in imgursInCluster">
-      <a class="carousel-item" ng-href="#/cluster/{{cluster.id}}"><img ng-src="{{imgur.url}}"></a>
-    </div> -->
-
-<!--       <div class="slider" ng-controller="ClusterDetailCtrl">
-        <ul class="slides">
-          <li ng-repeat="imgur in imgursInCluster">
-            <img ng-src="{{imgur.url}}"> 
-            <div class="caption center-align">
-              <h3>{{cluster.title}}</h3>
-            </div>
-          </li>
-        </ul>
-      </div> -->
-
-      <ng-fader></ng-fader>
-
-      <a ng-href="#/cluster/{{cluster.id}}" class="col s8"><h3>{{cluster.title}}</h3></a>
-      <div>
-        <button class="btn col s1" ng-click="addEditedCluster()">Edit</button>
-      </div>
-      <div>
-        <button class="btn col s1" ng-click="clusterDelete(cluster.id)"><i class="material-icons">delete</i></button>
+  <div class="image-display">
+    <div ng-repeat="cluster in userClusters">
+      <div class="card row col s10 card-image" layout> 
+        <img src="{{displayImages[$index].URL}}" class= "responsive-img">
+        <a ng-href="#/cluster/{{cluster.id}}" class="col s8"><h3>{{cluster.title}}</h3></a>
+        <div>
+          <button class="btn col s1" ng-click="addEditedCluster()">Edit</button>
+        </div>
+        <div>
+          <button class="btn col s1" ng-click="clusterDelete(cluster.id)"><i class="material-icons">delete</i></button>
+        </div>
       </div>
     </div>
   </div>
