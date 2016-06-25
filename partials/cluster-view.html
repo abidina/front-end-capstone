@@ -12,9 +12,7 @@
       <a class="carousel-item" ng-href="#/cluster/{{cluster.id}}"><img ng-src="{{imgur.url}}"></a>
     </div> -->
 
-
-
-      <div class="slider" ng-controller="ClusterDetailCtrl">
+<!--       <div class="slider" ng-controller="ClusterDetailCtrl">
         <ul class="slides">
           <li ng-repeat="imgur in imgursInCluster">
             <img ng-src="{{imgur.url}}"> 
@@ -23,12 +21,12 @@
             </div>
           </li>
         </ul>
-      </div>
+      </div> -->
 
+      <ng-fader></ng-fader>
 
       <a ng-href="#/cluster/{{cluster.id}}" class="col s8"><h3>{{cluster.title}}</h3></a>
       <div>
-        <input type="text" placeholder="Edit Cluster name..." ng-hide/>
         <button class="btn col s1" ng-click="addEditedCluster()">Edit</button>
       </div>
       <div>
