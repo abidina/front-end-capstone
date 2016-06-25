@@ -11,17 +11,34 @@ var app = angular.module("ClusterApp", ["ngRoute"])
     }
 });
 
+/*------ trying to get the sidebar collapse to work for mobile, forces jquery use? -------*/
+// $(document).ready(function() {
+//     $(".button-collapse").sideNav();
+//     $('.carousel').carousel();
+//     $('.materialboxed').materialbox();
+// });
+
 // ROUTING HERE
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "partials/cluster-list.html",
-            controller:  "ListViewCtrl",
+            templateUrl: "partials/cluster-view.html",
+            controller:  "ClusterCtrl",
+            resolve: {isAuth}
+        })        
+        .when("/cluster-list", {
+            templateUrl: "partials/cluster-view.html",
+            controller:  "ClusterCtrl",
+            resolve: {isAuth}
+        })
+        .when("/cluster/:id", {
+            templateUrl: "partials/cluster-details.html",
+            controller:  "ClusterDetailCtrl",
             resolve: {isAuth}
         })
         .when("/search", {
             templateUrl: "partials/search.html",
-            controller:  "ClusterSearchCtrl",
+            controller:  "ImgurSearchCtrl",
             resolve: {isAuth}
         })
         .when("/login", {
@@ -40,10 +57,6 @@ app.config(function($routeProvider) {
 });
 
 
-/*------ trying to get the sidebar collapse to work for mobile, forces jquery use? -------*/
-// $(document).ready(function() {
-//     $(".button-collapse").sideNav();
-// });
 
 app.run(($location) => {
   let todoRef = new Firebase("https://capstone-cluster.firebaseio.com/");

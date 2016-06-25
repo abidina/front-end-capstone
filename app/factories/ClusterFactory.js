@@ -1,16 +1,14 @@
 "use strict";
 
-app.factory("ClusterFactory", function($q, $http, firebaseURL, AuthFactory, APIFactory){
-
-// ADD IMAGE TO CLUSTER
-let addToCluster = (imgur) => {
+app.factory("ClusterFactory", function($q, $http, firebaseURL, AuthFactory, APIFactory) {
+//ADD A NEW CLUSTER
+let addNewCluster = (newCluster) => {
   let user = AuthFactory.getUser();
-  console.log(imgur);
 
   return $q(function(resolve, reject) {
-    $http.post(`${firebaseURL}imgurs.json`,
+    $http.post(`${firebaseURL}clusters.json`,
       JSON.stringify({
-        URL:imgur.link,
+        title: newCluster.title,
         uid:user.uid
       }))
     .success(function(response){
@@ -22,11 +20,12 @@ let addToCluster = (imgur) => {
   });
 };
 
-// DELETE IMAGE FROM CLUSTER
-let deleteImgur = function(imgurId){
+
+// DELETE EXISTING CLUSTER
+let deleteCluster = function(clusterId){
   return $q(function(resolve, reject) {
     $http
-      .delete(`${firebaseURL}imgurs/${imgurId}.json`)
+      .delete(`${firebaseURL}clusters/${clusterId}.json`)
       .success(function(objectFromFirebase) {
         resolve(objectFromFirebase);
       })
@@ -36,21 +35,22 @@ let deleteImgur = function(imgurId){
   });
 };
 
-// FIREBASE: RETRIEVES CLUSTER FOR EACH LOGGED-IN USER FROM DATABASE
-  let getUserCluster = () =>  {
+
+// FIREBASE: RETRIEVES CLUSTER INFO FOR EACH LOGGED-IN USER
+  let getUserClusters = () =>  {
     let user = AuthFactory.getUser();
-    let imgursInCluster = [];
+    let userClusters = [];
 
     return $q(function(resolve, reject){
-      $http.get(`${firebaseURL}imgurs.json?orderBy="uid"&equalTo="${user.uid}"`)
+      $http.get(`${firebaseURL}clusters.json?orderBy="uid"&equalTo="${user.uid}"`)
         .success(function(returnObject){
-          var imgurCollection = returnObject;
-          console.log(imgurCollection);
-          Object.keys(imgurCollection).forEach(function(key){
-            imgurCollection[key].id=key;
-            imgursInCluster.push(imgurCollection[key]);
+          var clusterCollection = returnObject;
+          console.log(clusterCollection);
+          Object.keys(clusterCollection).forEach(function(key){
+            clusterCollection[key].id=key;
+            userClusters.push(clusterCollection[key]);
           });
-            resolve(imgursInCluster);
+            resolve(userClusters);
         })
         .error(function(error){
           reject(error);
@@ -58,6 +58,36 @@ let deleteImgur = function(imgurId){
     });
   };
 
+// EDIT CLUSTER TITLE
+let getSpecificCluster = (clusterId) => {
+  return $q(function(resolve, reject) {
+    $http.get(`${firebaseURL}clusters/${clusterId}.json`)
+      .success(function(clusterObject) {
+        resolve(clusterObject);
+      })
+      .error(function(error) {
+        reject(error);
+      });
+  });
+};
 
-  return{getUserCluster:getUserCluster, addToCluster:addToCluster, deleteImgur:deleteImgur}; 
+let updateClusterTitle = (clusterId, editedCluster) => {
+  let user = AuthFactory.getUser();
+  return $q(function(resolve, reject) {
+    $http.put(`${firebaseURL}clusters/${clusterId}.json`,
+      JSON.stringify({
+        title: editedCluster.title,
+        uid: user.uid
+      })
+    )
+    .success(
+      function(objectFromFirebase) {
+        resolve(objectFromFirebase);
+      });
+  });
+};
+
+  
+
+  return {getUserClusters:getUserClusters, addNewCluster:addNewCluster, deleteCluster:deleteCluster, getSpecificCluster:getSpecificCluster, updateClusterTitle:updateClusterTitle};
 });
