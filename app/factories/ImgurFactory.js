@@ -5,7 +5,7 @@ app.factory("ImgurFactory", function($q, $http, firebaseURL, AuthFactory, APIFac
 // ADD IMAGE TO CLUSTER
 let addToCluster = (imgur, clusterId) => {
   let user = AuthFactory.getUser();
-  console.log(imgur);
+  // console.log(imgur);
 
   return $q(function(resolve, reject) {
     $http.post(`${firebaseURL}imgurs.json`,
@@ -46,7 +46,7 @@ let deleteImgur = function(imgurId){
       $http.get(`${firebaseURL}imgurs.json?orderBy="clusterId"&equalTo="${clusterId}"`)
         .success(function(returnObject){
           var imgurCollection = returnObject;
-          console.log(imgurCollection);
+          // console.log(imgurCollection);
           Object.keys(imgurCollection).forEach(function(key){
             imgurCollection[key].id=key;
             imgursInCluster.push(imgurCollection[key]);

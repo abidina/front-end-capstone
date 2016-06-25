@@ -2,9 +2,13 @@
 
 app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routeParams, firebaseURL, AuthFactory, APIFactory, ImgurFactory, ClusterFactory) {
   
+    // VARIABLES
+  // $scope.selectedImgur = {};
+  // $scope.imgursInCluster = [];
+  $scope.selectedCluster = {};
   $scope.userClusters = [];
   $scope.selectedCluster = {};
-  $scope.welcome = "Hello Clusters.";
+  // $scope.welcome = "Hello Clusters.";
 
   $scope.editedCluster = {};
 
@@ -17,14 +21,14 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
 // DISPLAY USER CLUSTERS
   ClusterFactory.getUserClusters()
     .then(function(clusterCollection) {
-      console.log("clusterCollection", clusterCollection);
+      // console.log("clusterCollection", clusterCollection);
       $scope.userClusters = clusterCollection;
-      console.log("userClusters", $scope.userClusters);
+      // console.log("userClusters", $scope.userClusters);
     });
 
 // ADDING
   $scope.addNewCluster = () => {
-    console.log("click for cluster");
+    // console.log("click");
     ClusterFactory.addNewCluster($scope.newCluster)
       .then(() => {
         Materialize.toast("Added new Cluster!", 4000, 'blue-accent-1');
@@ -38,7 +42,7 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
 
   
   $scope.clusterDelete = (clusterId) => {
-    console.log("clusterId", clusterId); 
+    // console.log("clusterId", clusterId); 
     ClusterFactory.deleteCluster(clusterId).then(function(response){
       ClusterFactory.getUserClusters().then(function(clusterCollection){
         $scope.userClusters = clusterCollection;
@@ -47,17 +51,17 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
   };
 
 // EDIT CLUSTER TITLE
-  ClusterFactory.getSpecificCluster($routeParams.clusterId)
-    .then(function successCallback(response) {
-      $scope.editedCluster=response;
-    });
+  // ClusterFactory.getSpecificCluster($routeParams.clusterId)
+  //   .then(function successCallback(response) {
+  //     $scope.editedCluster=response;
+  //   });
 
-  $scope.addEditedCluster = () => {
-    clusterFactory.updateClusterTitle($routeParams.clusterId, $scope.editedCluster)
-      .then (function successCallback(response) {
-        $location.url("/clusters-view");
-      });
-  };
+  // $scope.addEditedCluster = (clusterId) => {
+  //   ClusterFactory.updateClusterTitle($routeParams.clusterId, $scope.editedCluster)
+  //     .then (function successCallback(response) {
+  //       $location.url("/clusters-view");
+  //     });
+  // };
 
 
 });

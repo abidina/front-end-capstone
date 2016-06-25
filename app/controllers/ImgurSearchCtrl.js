@@ -1,7 +1,7 @@
 "use strict";
 
 app.controller("ImgurSearchCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory, APIFactory, ImgurFactory, ClusterFactory) {
-  $scope.welcome = "Hello Humans.";
+  // $scope.welcome = "Hello Humans.";
   let imagesFromImgur = [];
   $scope.imgurs = [];
   $scope.clusters = [];
@@ -21,16 +21,16 @@ app.controller("ImgurSearchCtrl", function($scope, $rootScope, $location, fireba
 
 
   $scope.getImages = () =>{
-    console.log("click");
+    // console.log("click");
       APIFactory.imageList($scope.searchText)
       .then((dataFromImgur) =>{
         $scope.imgurs = dataFromImgur.data.data.items;
-        console.log('imgurs',  $scope.imgurs);
+        // console.log('imgurs',  $scope.imgurs);
       });
   };
 
   $scope.addToCluster = (imgur, clusterId) => {
-        console.log("clicked for firebase");
+        // console.log("clicked for firebase");
     ImgurFactory.addToCluster(imgur, clusterId)
       .then(() => {
         Materialize.toast("Added to Cluster!", 4000, 'blue-accent-1');

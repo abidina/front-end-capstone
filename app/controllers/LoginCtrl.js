@@ -19,7 +19,7 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
 
 
   $scope.register = () => {
-    console.log("you clicked register");
+    // console.log("you clicked register");
     ref.createUser({
       email: $scope.account.email,
       password: $scope.account.password
@@ -34,7 +34,7 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
   };
 
   $scope.login = () => {
-    console.log("you clicked login");
+    // console.log("you clicked login");
     AuthFactory
       .authenticate($scope.account)
       .then(() => {

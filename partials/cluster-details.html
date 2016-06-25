@@ -2,14 +2,14 @@
   <div class="image-display">
     <div ng-repeat="imgur in imgursInCluster">
         <div class="row">
-          <div class="card col s5">
-            <div class="card-image circle">
-              <img ng-src="{{imgur.URL}}" class="circle responsive-image"></img>
+          <div class="card col s6">
+            <div class="card-image">
+              <img ng-src="{{imgur.URL}}" class="materialboxed" width="650"></img>
             </div>
-            <li><a class=btn><i class="material-icons" ng-click="imgurDelete(imgur.id)">delete_forever</i></a></li> 
-
+            <div>
+              <li><a class=btn><i class="material-icons" ng-click="imgurDelete(imgur.id)">delete_forever</i></a></li> 
+            </div>
           </div>
         </div>
     </div>
   </div>
-</div>

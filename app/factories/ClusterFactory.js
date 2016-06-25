@@ -36,36 +36,6 @@ let deleteCluster = function(clusterId){
 };
 
 
-// EDIT CLUSTER TITLE
-var getSpecificCluster = (clusterId) => {
-  return $q(function(resolve, reject) {
-    $http.get(`${firebaseURL}clusters/${clusterId}.json`)
-      .success(function(clusterObject) {
-        resolve(clusterObject);
-      })
-      .error(function(error) {
-        reject(error);
-      });
-  });
-};
-
-var updateClusterTitle = (clusterId, newCluster) => {
-  let user = AuthFactory.getUser();
-  return $q(function(resolve, reject) {
-    $http.put(`${firebaseURL}clusters/${clusterId}.json`,
-      JSON.stringify({
-        title: newCluster.title,
-        uid: user.uid
-      })
-    )
-    .success(
-      function(objectFromFirebase) {
-        resolve(objectFromFirebase);
-      });
-  });
-};
-
-
 // FIREBASE: RETRIEVES CLUSTER INFO FOR EACH LOGGED-IN USER
   let getUserClusters = () =>  {
     let user = AuthFactory.getUser();
@@ -87,6 +57,36 @@ var updateClusterTitle = (clusterId, newCluster) => {
         });
     });
   };
+
+// EDIT CLUSTER TITLE
+let getSpecificCluster = (clusterId) => {
+  return $q(function(resolve, reject) {
+    $http.get(`${firebaseURL}clusters/${clusterId}.json`)
+      .success(function(clusterObject) {
+        resolve(clusterObject);
+      })
+      .error(function(error) {
+        reject(error);
+      });
+  });
+};
+
+let updateClusterTitle = (clusterId, editedCluster) => {
+  let user = AuthFactory.getUser();
+  return $q(function(resolve, reject) {
+    $http.put(`${firebaseURL}clusters/${clusterId}.json`,
+      JSON.stringify({
+        title: editedCluster.title,
+        uid: user.uid
+      })
+    )
+    .success(
+      function(objectFromFirebase) {
+        resolve(objectFromFirebase);
+      });
+  });
+};
+
   
 
   return {getUserClusters:getUserClusters, addNewCluster:addNewCluster, deleteCluster:deleteCluster, getSpecificCluster:getSpecificCluster, updateClusterTitle:updateClusterTitle};

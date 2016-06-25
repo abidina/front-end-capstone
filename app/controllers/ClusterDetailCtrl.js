@@ -25,7 +25,7 @@ app.controller("ClusterDetailCtrl", function($scope, $rootScope, $routeParams, $
 
   
 $scope.imgurDelete = (imgurId) => {
-  console.log("imgurId", imgurId); 
+  // console.log("imgurId", imgurId); 
   ImgurFactory.deleteImgur(imgurId).then(function(response){
     ImgurFactory.getUserImgurs($routeParams.id).then(function(imgurCollection){
       $scope.imgursInCluster = imgurCollection;
