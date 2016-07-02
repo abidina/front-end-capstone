@@ -1,3 +1,7 @@
+body {
+  background-color: #1a237e;
+  color: #fff; }
+
 h1 {
   font-family: "Oleo Script Swash Caps", cursive;
   font-weight: 700; }
@@ -8,19 +12,33 @@ h2, h3 {
 p {
   font-family: "Poppins", sans-serif; }
 
+input {
+  border-bottom: #536dfe; }
+
 div img {
   width: 100%; }
 
 .btn {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+  background-color: #536dfe;
   margin: 2%; }
+  .btn a {
+    color: #fff; }
+
+option {
+  color: #536dfe; }
 
 .brand-logo {
   font-family: "Oleo Script Swash Caps", cursive; }
 
 a {
   font-family: "Poppins", sans-serif; }
+
+.nav-wrapper {
+  background-color: #fff; }
+  .nav-wrapper a {
+    color: #19588D; }
 
 body {
   display: flex;

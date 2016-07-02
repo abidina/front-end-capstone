@@ -35,7 +35,7 @@ app.config(function($routeProvider) {
             controller:  "ClusterDetailCtrl",
             resolve: {isAuth}
         })
-        .when("/cluster/:id/edit", {
+        .when("/cluster-list/:id/edit", {
             templateUrl: "partials/cluster-edit.html",
             controller:  "ClusterCtrl",
             resolve: {isAuth}

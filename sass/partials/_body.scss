@@ -2,8 +2,8 @@
 @import "../modules/text";
 
 body {
-  // background-color: $background-color;
-  // color: $standard-text-color;
+  background-color: $background-color;
+  color: $standard-text-color;
 }
 
 h1 {
@@ -19,9 +19,9 @@ p {
   font-family: $standard-text;
 }
 
-// input {
-//   border-bottom: $accent-color;
-// }
+input {
+  border-bottom: $accent-color;
+}
 
 div {
   img {
@@ -33,6 +33,13 @@ div {
 .btn {
   font-family:  $standard-text;
   font-weight: 600;
-  // background-color: $accent-color;
+  background-color: $accent-color;
   margin: 2%;
+  a {
+    color: $standard-text-color;
+  }
+} 
+
+option {
+  color: $accent-color;
 }

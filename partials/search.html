@@ -13,15 +13,20 @@
           <div class="card-image circle">
             <img ng-src="{{imgur.link}}" class="circle responsive-image"></img>
             <div>
-        <!--       <select ng-options="cluster.title for cluster in clusters track by cluster.id" ng-model="selectedCluster"> -->
-              <div ng-repeat="cluster in clusters"><button class="btn" ng-click="addToCluster(imgur, cluster.id)">{{cluster.title}}</button></div>
+
+<!--               <div ng-repeat="cluster in clusters"><button class="btn" ng-click="addToCluster(imgur, cluster.id)">{{cluster.title}}</button></div>
             </div>
-          </div>
-
-<!--      <li><a href="#/cluster/{{cluster.id}}">
  -->
+              <div input-field>
+                  <select class="select-text" ng-model="select" material-select watch>
+<!--                       <option value="" disabled selected>Add to Cluster</option> -->
+                      <option ng-repeat="cluster in clusters">{{cluster.title}}</option>
+              </div>
+                  </select>
+                  <button class="btn" ng-click="addToCluster(imgur, cluster.id)">Add</button>
 
-<!--           <li><a class=btn><i class="material-icons" ng-click="addToCluster(imgur)">add_circle</i></a></li> -->
+            </div>
+
         </div>
       </div>
     </div>
