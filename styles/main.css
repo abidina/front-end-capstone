@@ -34,3 +34,9 @@ main {
   font-size: .8em;
   text-align: center;
   font-family: "Poppins", sans-serif; }
+
+#loaderDiv {
+  position: fixed;
+  top: 48%;
+  left: 48%;
+  z-index: 1100; }

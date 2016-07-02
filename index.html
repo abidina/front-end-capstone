@@ -16,10 +16,55 @@
 </head>
 
 <body ng-app="ClusterApp" ng-cloak>
+
+  <div id="loaderDiv" class="preloader-wrapper big active" loader>
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+
+
   <!-- NAV -->
-  <header>
+  <!-- <header> -->
     <div ng-include="'./partials/nav.html'"></div>
-  </header>
+  <!-- </header> -->
 
   <!-- BODY -->
   <main>
@@ -57,6 +102,7 @@
   <script type="text/javascript" src="app/app.js"></script>
 
   <!-- FACTORIES -->
+  <script type="text/javascript" src="app/factories/InterceptorFactory.js"></script>
   <script type="text/javascript" src="app/factories/AuthFactory.js"></script>  
   <script type="text/javascript" src="app/factories/APIFactory.js"></script>
   <script type="text/javascript" src="app/factories/ImgurFactory.js"></script>
