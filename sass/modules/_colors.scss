@@ -1,3 +1,18 @@
-$background-color: #1a237e;
-$accent-color: #536dfe;
-$standard-text-color: #fff;
+// $background-color: #1a237e;
+// $accent-color: #536dfe;
+// $standard-text-color: #fff;
+
+$primary-color: color("indigo", "base") !default;
+$primary-color-light: false !default;
+$primary-color-dark: false !default;
+// @if not $primary-color-light {
+//   $primary-color-light: lighten("indigo", 15%);
+// }
+// @if not $primary-color-dark {
+//   $primary-color-dark: darken("indigo", 15%);
+// }
+$secondary-color: color("deep-purple", "lighten-1") !default;
+$success-color: color("blue", "lighten-2") !default;
+$error-color: color("red", "darken-1") !default;
+
+$link-color: color("indigo", "lighten-2") !default;

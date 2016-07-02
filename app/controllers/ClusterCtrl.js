@@ -27,7 +27,7 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
           .then(function(images) {
             console.log("images", images);
             $scope.displayImages.push(images[0]);
-          })
+          });
       }
       $scope.userClusters = clusterCollection;
       // console.log("userClusters", $scope.userClusters);
@@ -58,17 +58,18 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
   };
 
 // EDIT CLUSTER TITLE
-  // ClusterFactory.getSpecificCluster($routeParams.clusterId)
-  //   .then(function successCallback(response) {
-  //     $scope.editedCluster=response;
-  //   });
+  ClusterFactory.getSpecificCluster($routeParams.clusterId)
+    .then(function successCallback(response) {
+      $scope.editedCluster=response;
+    });
 
-  // $scope.addEditedCluster = (clusterId) => {
-  //   ClusterFactory.updateClusterTitle($routeParams.clusterId, $scope.editedCluster)
-  //     .then (function successCallback(response) {
-  //       $location.url("/clusters-view");
-  //     });
-  // };
+  $scope.addEditedCluster = () => {
+    ClusterFactory.updateClusterTitle($routeParams.clusterId, $scope.editedCluster)
+      .then (function successCallback(response) {
+        console.log(response);
+        $location.url("/clusters-view");
+      });
+  };
 
 
 });

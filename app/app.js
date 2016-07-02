@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("ClusterApp", ["ngRoute", "ngAnimate", "ngTouch", "ngFader", "ui.materialize"])
+var app = angular.module("ClusterApp", ["ngRoute", "ngAnimate", "ngTouch", "ui.materialize"])
   .constant("firebaseURL", "https://capstone-cluster.firebaseio.com/");
 
   let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
@@ -14,7 +14,6 @@ var app = angular.module("ClusterApp", ["ngRoute", "ngAnimate", "ngTouch", "ngFa
 /*------ trying to get the sidebar collapse to work for mobile, forces jquery use? -------*/
 $(document).ready(function() {
     $(".button-collapse").sideNav();
-    // $('.carousel').carousel();
     $('.materialboxed').materialbox();
 });
 
@@ -34,6 +33,11 @@ app.config(function($routeProvider) {
         .when("/cluster/:id", {
             templateUrl: "partials/cluster-details.html",
             controller:  "ClusterDetailCtrl",
+            resolve: {isAuth}
+        })
+        .when("/cluster/:id/edit", {
+            templateUrl: "partials/cluster-edit.html",
+            controller:  "ClusterCtrl",
             resolve: {isAuth}
         })
         .when("/search", {
