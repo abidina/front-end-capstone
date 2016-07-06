@@ -58,18 +58,18 @@ app.controller("ClusterCtrl", function($scope, $rootScope, $location, $routePara
   };
 
 // EDIT CLUSTER TITLE
-  ClusterFactory.getSpecificCluster($routeParams.clusterId)
-    .then(function successCallback(response) {
-      $scope.editedCluster=response;
-    });
+  // ClusterFactory.getSpecificCluster($routeParams.clusterId)
+  //   .then(function successCallback(response) {
+  //     $scope.editedCluster=response;
+  //   });
 
-  $scope.addEditedCluster = () => {
-    ClusterFactory.updateClusterTitle($routeParams.clusterId, $scope.editedCluster)
-      .then (function successCallback(response) {
-        console.log(response);
-        $location.url("/clusters-view");
-      });
-  };
+  // $scope.addEditedCluster = () => {
+  //   ClusterFactory.updateClusterTitle($routeParams.clusterId, $scope.editedCluster)
+  //     .then (function successCallback(response) {
+  //       console.log(response);
+  //       $location.url("/clusters-view");
+  //     });
+  // };
 
 
 });

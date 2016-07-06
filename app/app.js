@@ -35,11 +35,11 @@ app.config(function($routeProvider) {
             controller:  "ClusterDetailCtrl",
             resolve: {isAuth}
         })
-        .when("/cluster-list/:id/edit", {
-            templateUrl: "partials/cluster-edit.html",
-            controller:  "ClusterCtrl",
-            resolve: {isAuth}
-        })
+        // .when("/cluster-list/:id/edit", {
+        //     templateUrl: "partials/cluster-edit.html",
+        //     controller:  "ClusterCtrl",
+        //     resolve: {isAuth}
+        // })
         .when("/search", {
             templateUrl: "partials/search.html",
             controller:  "ImgurSearchCtrl",

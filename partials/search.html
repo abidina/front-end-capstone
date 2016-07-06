@@ -7,9 +7,9 @@
 
   <div class="image-display">
     <!-- return images from search -->
-    <div ng-repeat="imgur in imgurs">
       <div class="row">
-        <div class="card">
+    <div ng-repeat="imgur in imgurs">
+        <div class="card col s5">
           <div class="card-image circle">
             <img ng-src="{{imgur.link}}" class="circle responsive-image"></img>
             <div>
@@ -18,13 +18,13 @@
             </div>
  -->
               <div input-field>
-                  <select class="select-text" ng-model="select" material-select watch>
-<!--                       <option value="" disabled selected>Add to Cluster</option> -->
-                      <option ng-repeat="cluster in clusters">{{cluster.title}}</option>
+                  <select class="select-text" ng-model="select" material-select watch ng-change="addToCluster(imgur, select)">
+<!--                     <option disabled selected>Add to Cluster</option> -->                      
+                  <option ng-repeat="cluster in clusters" value="{{cluster.id}}">{{cluster.title}}</option>
               </div>
                   </select>
-                  <button class="btn" ng-click="addToCluster(imgur, cluster.id)">Add</button>
-
+<!--                   <button class="btn">Add</button>
+ -->
             </div>
 
         </div>

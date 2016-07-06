@@ -1,15 +1,15 @@
 <h1>{{selectedCluster.title}}</h1>
   <div class="image-display">
+    <div class="row">
     <div ng-repeat="imgur in imgursInCluster">
-        <div class="row" layout>
-          <div class="card col s6">
-            <div class="card-image">
-              <img materialboxed class="materialboxed responsive-img" width="650" ng-src="{{imgur.URL}}"></img>
+          <div class="card col s5">
+              <div class="card-image">
+                <img materialboxed class="materialboxed responsive-img" width="650" ng-src="{{imgur.URL}}"></img>
+              </div>
+              <div>
+                <li><a class="btn"><i class="material-icons" ng-click="imgurDelete(imgur.id)">delete_forever</i></a></li> 
+              </div>
             </div>
-            <div>
-              <li><a class=btn><i class="material-icons" ng-click="imgurDelete(imgur.id)">delete_forever</i></a></li> 
-            </div>
-          </div>
         </div>
     </div>
   </div>

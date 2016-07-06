@@ -40,14 +40,6 @@ a {
   .nav-wrapper a {
     color: #19588D; }
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column; }
-
-main {
-  flex: 1 0 auto; }
-
 .footer-copyright {
   font-size: .8em;
   text-align: center;

@@ -6,13 +6,13 @@
   </div>
 
   <div class="image-display">
+      <div class="card row col s6 card-image" layout> 
     <div ng-repeat="cluster in userClusters">
-      <div class="card row col s10 card-image" layout> 
         <img src="{{displayImages[$index].URL}}" class= "responsive-img">
         <a ng-href="#/cluster/{{cluster.id}}" class="col s8"><h3>{{cluster.title}}</h3></a>
-        <div>
+<!--         <div>
           <button class="btn col s1"><a ng-href="#/cluster-list/:id/edit">Edit</a></button>
-        </div>
+        </div> -->
         <div>
           <button class="btn col s1" ng-click="clusterDelete(cluster.id)"><i class="material-icons">delete</i></button>
         </div>
