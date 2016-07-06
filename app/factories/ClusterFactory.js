@@ -71,23 +71,24 @@ let getSpecificCluster = (clusterId) => {
   });
 };
 
-let updateClusterTitle = (clusterId, editedCluster) => {
-  let user = AuthFactory.getUser();
-  return $q(function(resolve, reject) {
-    $http.put(`${firebaseURL}clusters/${clusterId}.json`,
-      JSON.stringify({
-        title: editedCluster.title,
-        uid: user.uid
-      })
-    )
-    .success(
-      function(objectFromFirebase) {
-        resolve(objectFromFirebase);
-      });
-  });
-};
+// let updateClusterTitle = (clusterId, editedCluster) => {
+//   let user = AuthFactory.getUser();
+//   return $q(function(resolve, reject) {
+//     $http.put(`${firebaseURL}clusters/${clusterId}.json`,
+//       JSON.stringify({
+//         title: editedCluster.title,
+//         uid: user.uid
+//       })
+//     )
+//     .success(
+//       function(objectFromFirebase) {
+//         resolve(objectFromFirebase);
+//       });
+//   });
+// };
 
   
 
-  return {getUserClusters:getUserClusters, addNewCluster:addNewCluster, deleteCluster:deleteCluster, getSpecificCluster:getSpecificCluster, updateClusterTitle:updateClusterTitle};
+  return {getUserClusters:getUserClusters, addNewCluster:addNewCluster, deleteCluster:deleteCluster, getSpecificCluster:getSpecificCluster};
 });
+// , updateClusterTitle:updateClusterTitle

@@ -25,7 +25,8 @@ input {
 
 div {
   img {
-    border-radius: 25%;
+    // border-radius: 30%;
+    width: 100%;
   }
 }
 
@@ -34,4 +35,19 @@ div {
   font-weight: 600;
   background-color: $accent-color;
   margin: 2%;
+  a {
+    color: $standard-text-color;
+  }
+} 
+
+option {
+  color: $accent-color;
 }
+
+// .row {
+//   display: flex;
+// }
+
+// .flexy-stuff {
+//   flex-basis: auto;
+// }

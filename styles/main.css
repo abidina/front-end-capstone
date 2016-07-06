@@ -16,13 +16,18 @@ input {
   border-bottom: #536dfe; }
 
 div img {
-  border-radius: 25%; }
+  width: 100%; }
 
 .btn {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   background-color: #536dfe;
   margin: 2%; }
+  .btn a {
+    color: #fff; }
+
+option {
+  color: #536dfe; }
 
 .brand-logo {
   font-family: "Oleo Script Swash Caps", cursive; }
@@ -35,15 +40,13 @@ a {
   .nav-wrapper a {
     color: #19588D; }
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column; }
-
-main {
-  flex: 1 0 auto; }
-
 .footer-copyright {
   font-size: .8em;
   text-align: center;
   font-family: "Poppins", sans-serif; }
+
+#loaderDiv {
+  position: fixed;
+  top: 48%;
+  left: 48%;
+  z-index: 1100; }

@@ -1,0 +1,10 @@
+@import "../modules/colors";
+@import "../modules/text";
+
+
+#loaderDiv {
+   position: fixed;
+   top: 48%;
+   left: 48%;
+   z-index: 1100;
+}

@@ -5,7 +5,7 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Capstone</title>
-
+  <link rel="icon" href="https://pbs.twimg.com/media/CYwmQuJUQAEQ27F.png">
   <!-- Materialize: Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <!-- Materialize: NECESSARY FOR ICONS -->
@@ -16,28 +16,73 @@
 </head>
 
 <body ng-app="ClusterApp" ng-cloak>
+
+  <div id="loaderDiv" class="preloader-wrapper big active" loader>
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+
+
   <!-- NAV -->
-  <header>
+  <!-- <header> -->
     <div ng-include="'./partials/nav.html'"></div>
-  </header>
+  <!-- </header> -->
 
   <!-- BODY -->
   <main>
     <div>
-      <div class="container">
+      <div class="container" layout>
         <div ng-view></div>
       </div>
     </div>
   </main>
 
 
-<footer>
+<!-- <footer>
   <div class="footer-copyright">
     <div class="container">
     © 2016 Abbie Holder
     </div>
   </div>
-</footer>
+</footer> -->
 
   <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
   <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -50,11 +95,14 @@
   <!-- Materialize: Latest compiled and minified JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-touch.js"></script>
 
   <!-- APP FIRST -->
   <script type="text/javascript" src="app/app.js"></script>
 
   <!-- FACTORIES -->
+  <script type="text/javascript" src="app/factories/InterceptorFactory.js"></script>
   <script type="text/javascript" src="app/factories/AuthFactory.js"></script>  
   <script type="text/javascript" src="app/factories/APIFactory.js"></script>
   <script type="text/javascript" src="app/factories/ImgurFactory.js"></script>
