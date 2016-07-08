@@ -1,20 +1,24 @@
-<!-- <div ng-controller="ClusterCtrl">
- -->  <h1>My Clusters</h1>
+<h1>My Clusters</h1>
   <div class="row">
     <input type="text" placeholder="Name new Cluster here..." class="col s6 offset-s2" ng-model="newCluster.title" />
     <button class="btn col s1 offset-s1"><i class="material-icons" ng-click="addNewCluster()">thumb_up</i></button>
   </div>
 
-  <div class="image-display">
-      <div class="card row col s6 card-image" layout> 
+  <div class="image-display row">
     <div ng-repeat="cluster in userClusters">
-        <img src="{{displayImages[$index].URL}}" class= "responsive-img">
-        <a ng-href="#/cluster/{{cluster.id}}" class="col s8"><h3>{{cluster.title}}</h3></a>
+      <div class="card z-depth-2 col s5 offset-s1"> 
+        <div class="card-image">
+          <img src="{{displayImages[$index].URL}}" class= "responsive-img">
+            <div class="row">
+            <a ng-href="#/cluster/{{cluster.id}}" class="col s8"><h3>{{cluster.title}}</h3></a>
 <!--         <div>
           <button class="btn col s1"><a ng-href="#/cluster-list/:id/edit">Edit</a></button>
         </div> -->
-        <div>
-          <button class="btn col s1" ng-click="clusterDelete(cluster.id)"><i class="material-icons">delete</i></button>
+        
+            <div>
+              <button class="btn col s2 offset-s1 waves-effect waves-light" ng-click="clusterDelete(cluster.id)"><i class="material-icons">delete</i></button>
+            </div>
+            </div>
         </div>
       </div>
     </div>
