@@ -1,13 +1,15 @@
-<section class="container-fluid">
+<section class="container-fluid login-section z-depth-2">
   <h1>Login or Register</h1>
-  <div>
-    <p>Email: <input type="text" autofocus="true" ng-model="account.email"></p>
+  <div class="input-section">
+    <div>
+      <p>Email: <input type="text" autofocus="true" ng-model="account.email"></p>
+    </div>
+    <div>
+      <p>Password: <input type="password" ng-model="account.password"></p>
+    </div>
   </div>
-  <div>
-    <p>Password: <input type="password" ng-model="account.password"></p>
-  </div>
-  <div>
-    <button class="btn" ng-click="login()">Login</button>
-    <button class="btn" ng-click="register()">Register</button>
+  <div class="login-btn">
+    <button class="btn waves-effect waves-light" ng-click="login()">Login</button>
+    <button class="btn waves-effect waves-light" ng-click="register()">Register</button>
   </div>
 </section>

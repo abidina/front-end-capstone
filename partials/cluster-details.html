@@ -1,13 +1,13 @@
 <h1>{{selectedCluster.title}}</h1>
   <div class="image-display">
     <div class="row">
-    <div ng-repeat="imgur in imgursInCluster">
-          <div class="card col s5">
+      <div ng-repeat="imgur in imgursInCluster">
+          <div class="card col s5 offset-s1 z-depth-2 hoverable">
               <div class="card-image">
                 <img materialboxed class="materialboxed responsive-img" width="650" ng-src="{{imgur.URL}}"></img>
               </div>
-              <div>
-                <li><a class="btn"><i class="material-icons" ng-click="imgurDelete(imgur.id)">delete_forever</i></a></li> 
+              <div class="dlt-btn">
+                <li class="dlt-btn"><a class="btn col s2"><i class="material-icons" ng-click="imgurDelete(imgur.id)">delete_forever</i></a></li> 
               </div>
             </div>
         </div>

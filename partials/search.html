@@ -2,25 +2,24 @@
   <h1>Search for images...</h1>
   <div class="row" layout>
     <input type="text" placeholder="Puppies, Jeff Goldblum, pineapple..." ng-model="searchText" class="col s6 offset-s2">
-    <button class="btn col s1 offset-s1"><i class="material-icons" ng-click="getImages(searchText)">search</i></button>
+    <button class="btn col s2 offset-s1 waves-effect waves-light"><i class="material-icons" ng-click="getImages(searchText)">search</i></button>
   </div>
 
   <div class="image-display">
     <!-- return images from search -->
-      <div class="row">
-    <div ng-repeat="imgur in imgurs">
-        <div class="card col s5">
-          <div class="card-image circle">
-            <img ng-src="{{imgur.link}}" class="circle responsive-image"></img>
+    <div class="row">
+      <div ng-repeat="imgur in imgurs">
+        <div class="card col s5 offset-s1 z-depth-2">
+          <div class="card-image">
+            <img ng-src="{{imgur.link}}" class="responsive-image"></img>
             <div>
-
 <!--               <div ng-repeat="cluster in clusters"><button class="btn" ng-click="addToCluster(imgur, cluster.id)">{{cluster.title}}</button></div>
             </div>
  -->
               <div input-field>
-                  <select class="select-text" ng-model="select" material-select watch ng-change="addToCluster(imgur, select)">
+                  <select class="select-text indigo-text" ng-model="select" material-select watch ng-change="addToCluster(imgur, select)">
 <!--                     <option disabled selected>Add to Cluster</option> -->                      
-                  <option ng-repeat="cluster in clusters" value="{{cluster.id}}">{{cluster.title}}</option>
+                  <option class="indigo-text" ng-repeat="cluster in clusters" value="{{cluster.id}}">{{cluster.title}}</option>
               </div>
                   </select>
 <!--                   <button class="btn">Add</button>

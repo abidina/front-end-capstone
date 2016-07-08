@@ -13,6 +13,7 @@ h1 {
 
 h2, h3 {
   font-family: $heading-text;
+  color: $accent-color;
 }
 
 p {
@@ -23,9 +24,12 @@ input {
   border-bottom: $accent-color;
 }
 
+input:focus {
+  border-bottom: $accent-color !important;
+}
+
 div {
   img {
-    // border-radius: 30%;
     width: 100%;
   }
 }
@@ -40,14 +44,32 @@ div {
   }
 } 
 
-option {
-  color: $accent-color;
+
+.btn:hover {
+  background-color: $spare-color !important;
 }
 
-// .row {
-//   display: flex;
-// }
+option {
+  color: $accent-color !important;
+}
 
-// .flexy-stuff {
-//   flex-basis: auto;
-// }
+.login-section {
+  border: white 5px solid;
+  border-radius: 10px;
+  padding: 5%;
+  margin: 5%;
+  h1 {
+    text-align: center;
+  }
+  .input-section {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  .login-btn {
+    text-align: center;
+  }
+}
+
+.dlt-btn {
+  text-align: center;
+}

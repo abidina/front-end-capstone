@@ -7,13 +7,17 @@ h1 {
   font-weight: 700; }
 
 h2, h3 {
-  font-family: "Oleo Script Swash Caps", cursive; }
+  font-family: "Oleo Script Swash Caps", cursive;
+  color: #536dfe; }
 
 p {
   font-family: "Poppins", sans-serif; }
 
 input {
   border-bottom: #536dfe; }
+
+input:focus {
+  border-bottom: #536dfe !important; }
 
 div img {
   width: 100%; }
@@ -26,8 +30,27 @@ div img {
   .btn a {
     color: #fff; }
 
+.btn:hover {
+  background-color: #3647EF !important; }
+
 option {
-  color: #536dfe; }
+  color: #536dfe !important; }
+
+.login-section {
+  border: white 5px solid;
+  border-radius: 10px;
+  padding: 5%;
+  margin: 5%; }
+  .login-section h1 {
+    text-align: center; }
+  .login-section .input-section {
+    margin-right: 5%;
+    margin-left: 5%; }
+  .login-section .login-btn {
+    text-align: center; }
+
+.dlt-btn {
+  text-align: center; }
 
 .brand-logo {
   font-family: "Oleo Script Swash Caps", cursive; }
